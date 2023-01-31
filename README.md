@@ -23,10 +23,7 @@ Installer **CLIENT REST** dans visual stidio code
 
 Posséder Xamp 
 
-Créer une base de donné avec cette requette sql 
-```
-CREATE TABLE `db-entreprise`.`entreprise` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NULL , `creation_date` DATE NULL , `city` VARCHAR(255) NULL , `manager` VARCHAR(255) NULL , `max_salary` VARCHAR(255) NULL , `mean_salary` VARCHAR(255) NULL , `min_salary` VARCHAR(255) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-```
+
 
 * Les bibliothèques 
 
@@ -36,7 +33,7 @@ Flask avec :
 
 - pip install flask-cors
 
-- pip install flask-mysql
+- pip install flask-sqlalchemy
 ```
 
 
