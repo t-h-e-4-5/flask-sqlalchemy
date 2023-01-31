@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+ 
+label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+ 
+input[type="text"] { 
+    width: 100%; 
+    padding: 12px 20px; 
+    margin: 8px 0; 
+    box-sizing: border-box; 
+}  
+
+ button { 
+
+     background-color:#4CAF50; /* Green */
+
+     border: none;
+
+     color: white;
+
+     padding: 15px 32px;
+
+     text-align: center;
+
+     text-decoration: none;
+
+     display: inline-block;
+
+     font-size: 16px;
+
+ }
+    </style>
+    <form action="/user/add" method="post">
+        <div>
+          <label for="nom">Nom :</label>
+          <input type="text" id="nom" name="nom">
+        </div>
+      
+        <div class="button">
+          <button type="submit">Ajouter l'utilisateur</button>
+        </div>
+      </form>
+</body>
+</html>

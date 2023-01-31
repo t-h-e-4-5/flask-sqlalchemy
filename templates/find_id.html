@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        function getUser() {
+            var id = document.getElementById("userId").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/users/find/" + id, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var user = JSON.parse(xhr.responseText);
+                    document.getElementById("userId").innerHTML = user.id;
+                    document.getElementById("userNom").innerHTML = user.nom;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+
+<body>
+    <style>
+        form {
+            width: 100%;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+
+        label {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+
+            background-color: #4CAF50;
+            /* Green */
+
+            border: none;
+
+            color: white;
+
+            padding: 15px 32px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 16px;
+
+        }
+        table,
+        caption,
+        th,
+        td {
+            border: 2px solid skyblue;
+            border-collapse: collapse;
+        }
+
+        caption,
+        th,
+        td {
+            padding: 8px;
+        }
+
+        caption {
+            background-color: lightgrey;
+        }
+
+        th {
+            width: 200px;
+            background-color: blue;
+        }
+
+        td {
+            background-color: lightblue;
+        }
+    </style>
+    <style>
+        .bien {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          /*background-color: #19a2cc;
+          border: 300px solid rgb(16, 125, 227);*/
+        }
+    
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      </style>
+    
+
+
+    <div class="bien">
+        <label for="userId">Enter User ID:</label>
+        <input type="text" id="userId">
+        <button onclick="getUser()">Get User</button>
+    </div>
+    <br><br><br><br><br>
+    <table id="user-table">
+        <thead>
+            <tr>
+                <!--<th>ID</th>-->
+                <th>NOM</th>
+                <!--<th id="userId"></th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!--<td id="userId"></td>-->
+                <td id="userNom"></td>
+            </tr>
+        </tbody>
+        <!--<th>
+            <td>Name:</td>
+            <td id="userNom"></td>
+        </th>-->
+    </table>
+
+
+</body>
+
+</html>

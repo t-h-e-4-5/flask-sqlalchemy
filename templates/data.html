@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste users</title>
+</head>
+
+<body>
+    <h1>Données JSON</h1>
+
+    <style id="users-table">
+        table,
+        caption,
+        th,
+        td {
+            border: 2px solid skyblue;
+            border-collapse: collapse;
+        }
+
+        caption,
+        th,
+        td {
+            padding: 8px;
+        }
+
+        caption {
+            background-color: lightgrey;
+        }
+
+        th {
+            width: 200px;
+            background-color: blue;
+        }
+
+        td {
+            background-color: lightblue;
+        }
+    </style>
+    <table id="users-table">
+        <caption>Liste des utilisateurs</caption>
+        <colgroup>
+            <col style="width: auto;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody id="users-table-body"></tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <a href="http://127.0.0.1:5000/add">Ajouter un utilisateur</a> &nbsp;
+    <a href="http://127.0.0.1:5000/by">Rechercher un utilisateur</a>
+    <script>
+        fetch('/users')
+            .then(response => response.json())
+            .then(users => {
+                var tbody = document.getElementById("users-table-body");
+                users.forEach(user => {
+                    var row = document.createElement("tr");
+                    var idCell = document.createElement("td");
+                    idCell.innerHTML = user.id;
+                    var nomCell = document.createElement("td");
+                    nomCell.innerHTML = user.nom;
+                    row.appendChild(idCell);
+                    row.appendChild(nomCell);
+                    tbody.appendChild(row);
+                });
+            })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+
+</html>
